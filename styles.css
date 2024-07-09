@@ -1,0 +1,472 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif; /* Fallback a Arial si Roboto no está disponible */
+}
+
+/* Estilos del cuerpo */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #ffffff; /* Cambia el color de fondo según tu diseño */
+    margin: 0;
+}
+
+/* Estilos para títulos */
+h1 {
+    font-family: 'Chewy', cursive; /* Usa la fuente Chewy para h1 */
+    color: #fff; /* Color blanco para el texto */
+    text-align: left; /* Alinea el texto a la izquierda */
+    font-size: 40px;
+    letter-spacing: .3rem;
+    word-spacing: .8rem;
+    margin: 0 0 0 180px; /* Ajusta el margen para separar del logo */
+}
+
+/* Estilos para párrafos */
+p {
+    text-align: justify;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8a0209; /* Color de fondo del navbar */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 2s ease; /* Animación de 2 segundos al ocultar */
+}
+
+.navbar div {
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    height: 50px; /* Ajusta el tamaño según necesites */
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #fff; /* Color blanco para los enlaces */
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 3px solid #8a0209;
+    width: 30%;
+    color: black; /* Color del texto */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para secciones */
+section {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0px;
+    background: #f0f0f0; /* Color de fondo para las secciones */
+    justify-content: flex-start; /* Asegura que los elementos hijos estén pegados a la parte superior */
+    scroll-margin-top: 70px; /* Altura del navbar */
+}
+
+section div {
+    margin-top: 0px;
+    padding-top: 0; /* Asegura que no haya relleno superior */
+    width: 100%; /* Asegura que el div ocupe el ancho completo del contenedor */
+    align-self: flex-start; /* Alinea el h2 al inicio del contenedor flex */
+}
+
+section h2 {
+    font-family: 'Tahoma', Arial, sans-serif; /* Usa Tahoma para h2 */
+    letter-spacing: .1rem;
+    align-self: flex-start; /* Alinea el h2 al inicio del contenedor flex */
+    padding: 0 0 20px 0; /* Elimina cualquier relleno superior */
+    color: #01911A;
+    font-size: 30px;
+}
+
+section h3 {
+    font-family: 'Tahoma', Arial, sans-serif; /* Usa Tahoma para h2 */
+    letter-spacing: .1rem;
+    align-self: flex-start; /* Alinea el h2 al inicio del contenedor flex */
+    padding: 15px 0 0 0; /* Elimina cualquier relleno superior */
+    color: #000000;
+    text-align: left;
+    font-size: 20px;
+}
+
+section h4 {
+    font-family: 'Tahoma', Arial, sans-serif; /* Usa Tahoma para h2 */
+    align-self: flex-start; /* Alinea el h2 al inicio del contenedor flex */
+    padding: 0 0 0 0; /* Elimina cualquier relleno superior */
+    color: #000000;
+    text-align: left;
+    font-size: 16px
+}
+
+section img {
+    max-width: 40%; 
+    height: auto; /* Asegura que la altura de la imagen se ajuste proporcionalmente */
+    display: block;
+    margin: 10px auto;
+}
+
+section:last-of-type {
+    margin-bottom: 25px;
+    padding-bottom: 100px; /* Mayor espacio en la parte inferior */
+    background: #d8d8d8; /* Color de fondo para las secciones */
+
+}
+
+/* Estilos para el pie de página */
+footer {
+    position: relative;
+    width: 100%;
+    background: #01911a;
+    min-height: 100px;
+    padding: 0 0 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social_icon, footer .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+footer .social_icon li, footer .menu li {
+    list-style: none;
+}
+
+footer .social_icon li a {
+    font-size: 2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+footer .social_icon li a:hover {
+    transform: translateY(-10px);
+}
+
+footer .menu li a {
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+footer .menu li a:hover {
+    opacity: 1;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+footer .ola {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(images/olav.png);
+    background-size: 1000px 100px;
+}
+
+footer .ola#ola1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animarOla 4s linear infinite;
+}
+
+footer .ola#ola2 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animarOla_02 4s linear infinite;
+}
+
+footer .ola#ola3 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animarOla 3s linear infinite;
+}
+
+footer .ola#ola4 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animarOla_02 3s linear infinite;
+}
+
+@keyframes animarOla {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animarOla_02 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
+
+/* Estilos para medios grandes (desktops) */
+@media (min-width: 769px) {
+    section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .izq {
+        flex-direction: row;
+    }
+
+    .izq > div {
+        width: 50%;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+    .izq > img {
+        width: 50%;
+    }
+
+    .der {
+        flex-direction: row-reverse;
+    }
+
+    .der > div {
+        width: 50%;
+        padding-left: 20px;
+        text-align: center;
+    }
+
+    .der > img {
+        width: 50%;
+    }
+}
+
+/* Estilos para formularios */
+form {
+    width: 100%;
+    max-width: 600px; /* Establece un ancho máximo para el formulario */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:center;
+}
+
+form label {
+    margin-bottom: 0px;
+    font-weight: bold;
+    text-align: left; /* Asegura que el texto del label esté alineado a la izquierda */
+    width: 100%; /* Asegura que el label ocupe el ancho completo */
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos hacia la izquierda */
+}
+
+form input, form textarea {
+    margin-bottom: 4px;
+    padding: 2px;
+    width: 100%; /* Asegura que los campos de entrada ocupen el ancho completo */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+
+form button {
+    padding: 0px 20px;
+    width: 100%;
+    background-color: #8a0209; /* Color del botón según los colores de la página */
+    color: #fff;
+    border: none;
+    font-family: 'Chewy', cursive; /* Usa la fuente Chewy para el botón */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #6b0106; /* Color del botón al hacer hover */
+}
+
+/* Estilos específicos para la primera y última sección */
+section:first-of-type {
+    padding-top: 100px; /* Mayor espacio en la parte superior */
+}
+
+
+/* Estilos para citas */
+q {
+    display: block;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    color: #333;
+    text-align: center;
+    position: relative;
+    quotes: "“" "”" "‘" "’";
+    transition: opacity 1s; /* Transición de opacidad */
+}
+
+.firma {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-style: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #333;
+    transition: opacity 1s; /* Transición de opacidad */
+}
+
+q:not([cite]) {
+    display: inline-block;
+    quotes: "“" "”" "‘" "’";
+    position: relative;
+}
+
+q:not([cite])::before {
+    content: open-quote;
+    font-size: 1.5em; /* Tamaño de las comillas principales */
+}
+
+q:not([cite])::after {
+    content: close-quote;
+    font-size: 1.5em; /* Tamaño de las comillas principales */
+}
+
+q:not([cite]) {
+    font-style: italic;
+    font-family: 'Times New Roman', serif; /* Cambia la fuente a Times New Roman */
+    font-size: 1.1em; /* Tamaño del texto dentro de <q> */
+    color: #333; /* Color gris oscuro para el texto dentro de <q> */
+}
+
+/* Estilos para la firma */
+#firma {
+    display: block; /* Hace que <span> se comporte como un bloque */
+    text-align: right; /* Alinea el texto a la derecha */
+    margin-top: 10px; /* Añade un margen superior para separar del contenido anterior */
+    font-style: normal; /* Cambia el estilo de la fuente a normal */
+    font-family: 'Roboto', sans-serif; /* Cambia la fuente a Roboto */
+    font-size: 1em; /* Tamaño del texto dentro de <span> */
+    color: #333; /* Color gris oscuro para el texto dentro de <span> */
+    width: 100%;
+}
+
+/* Estilos para listas */
+ul, ol {
+    margin: 10px 0;
+    padding-left: 20px;
+    text-align: left;
+}
+
+ol {
+    list-style-type: lower-alpha; /* Cambia la numeración a letras minúsculas */
+}
+
+ol li {
+    margin-bottom: 5px;
+}
+
+ul li {
+    margin-bottom: 0px;
+}
+
+/* Animaciones de las olas del pie de página */
+@keyframes animarOla {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animarOla_02 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: 1000px;
+    }
+}
