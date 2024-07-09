@@ -23,7 +23,7 @@ h1 {
     font-size: 40px;
     letter-spacing: .3rem;
     word-spacing: .8rem;
-    margin: 0 0 0 180px; /* Ajusta el margen para separar del logo */
+    min-width: 375px;
 }
 
 /* Estilos para párrafos */
@@ -37,7 +37,7 @@ p {
     justify-content: space-between;
     align-items: center;
     background-color: #8a0209; /* Color de fondo del navbar */
-    padding: 10px 20px;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -53,11 +53,13 @@ p {
 
 .navbar img {
     height: 50px; /* Ajusta el tamaño según necesites */
+    padding: 0 20px;
 }
 
 .navbar-links {
     list-style: none;
     display: flex;
+    min-width: 450px;
 }
 
 .navbar-links li {
@@ -78,24 +80,34 @@ p {
 /* Estilos para el modal */
 .modal {
     display: none;
-    position: fixed;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    position: fixed; /* Fijar posición en la ventana */
     z-index: 1001;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
+
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
     padding: 20px;
     border: 3px solid #8a0209;
     width: 30%;
-    color: black; /* Color del texto */
+    color: black;
+    border-radius: 2.1em;
+    overflow: auto; /* Asegúrate de permitir el desplazamiento dentro del modal */
 }
+
+/* Clase para deshabilitar el desplazamiento del fondo */
+body.no-scroll {
+    overflow: hidden; /* Deshabilitar el desplazamiento del fondo */
+}
+
 
 .close {
     color: #aaa;
@@ -328,6 +340,13 @@ footer .ola#ola4 {
 
     .der > img {
         width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Cambia 768px por el ancho máximo que desees considerar como móvil */
+    iframe {
+        padding-top: 20px;
     }
 }
 
