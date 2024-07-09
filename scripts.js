@@ -7,21 +7,35 @@ window.addEventListener('scroll', function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const llamarBtn = document.getElementById("llamar-btn");
-    const llamarModal = document.getElementById("llamar-modal");
-    const closeModal = document.getElementsByClassName("close")[0];
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('myModal');  // Corregido el selector del modal
+    const btn = document.getElementById('llamar-btn');
+    const span = document.getElementsByClassName('close')[0];
 
-    llamarBtn.addEventListener("click", function() {
-        llamarModal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Evita que el fondo sea desplazado
-    });
+    // Cierra el modal al hacer clic en el botón de cerrar
+    span.onclick = function() {
+        modal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }
 
-    closeModal.addEventListener("click", function() {
-        llamarModal.style.display = "none";
-        document.body.style.overflow = "auto"; // Restaura el desplazamiento del fondo
-    });
+    // Cierra el modal al hacer clic fuera del contenido del modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+    }
+
+    // Abre el modal al hacer clic en el botón
+    btn.onclick = function(event) {
+        event.preventDefault(); // Evitar comportamiento por defecto del enlace
+        modal.style.display = 'flex';
+        document.body.classList.add('no-scroll');
+    }
 });
+
+
+
 
 // Función para validar y enviar el formulario por correo electrónico
 function enviarFormulario(nombre, email, telefono, consulta) {
