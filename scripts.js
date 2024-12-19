@@ -34,53 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
-
-
-// Función para validar y enviar el formulario por correo electrónico
-function enviarFormulario(nombre, email, telefono, consulta) {
-    // Aquí deberías implementar el código para enviar el correo electrónico
-    // Esta función podría usar servicios de backend como Node.js con nodemailer,
-    // o enviar datos a un servicio como Google Sheets y luego procesarlos.
-
-    // Ejemplo de implementación ficticia:
-    console.log("Enviando formulario...");
-    console.log("Nombre: " + nombre);
-    console.log("Email: " + email);
-    console.log("Teléfono: " + telefono);
-    console.log("Consulta: " + consulta);
-
-    // Aquí se podría implementar la lógica para enviar el correo electrónico
-    // utilizando una API o servicio adecuado.
-}
-
-// Obtener el formulario y el botón de enviar
-var contactForm = document.getElementById("contactForm");
-var enviarBtn = document.getElementById("enviarBtn");
-
-// Manejar el clic en el botón de enviar
-enviarBtn.onclick = function() {
-    // Obtener los valores de los campos del formulario
-    var nombre = contactForm.elements["nombre"].value;
-    var email = contactForm.elements["email"].value;
-    var telefono = contactForm.elements["telefono"].value;
-    var consulta = contactForm.elements["consulta"].value;
-
-    // Validar que los campos obligatorios estén completos
-    if (nombre && consulta && email) {
-        // Llamar a la función para enviar el formulario por correo electrónico
-        enviarFormulario(nombre, email, telefono, consulta);
-
-        // Limpiar el formulario después de enviar
-        contactForm.reset();
-        
-        // Aquí podrías agregar un mensaje de confirmación o redirección si lo deseas
-        alert("¡Formulario enviado correctamente!");
-    } else {
-        alert("Por favor completa los campos obligatorios: Nombre, Email y Consulta.");
-    }
-};
-
 document.addEventListener("DOMContentLoaded", function() {
     const qElement = document.getElementById("translate");
     const firmaElement = document.getElementById("firma");
@@ -97,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 qElement.style.opacity = '1';
                 firmaElement.style.opacity = '1';
             }, 1000); // Espera a que la transición de opacidad termine antes de cambiar el contenido
-        }, 1000); // Cambia el contenido después de 1 segundo de hover
+        }, 500); // Cambia el contenido después de 1 segundo de hover
     });
 
     qElement.addEventListener("mouseleave", function() {
@@ -114,4 +67,55 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
+document.getElementById('enviarBtn').addEventListener('click', async function(event) {
+    event.preventDefault(); // Evita el comportamiento por defecto del formulario
+    
+    // Obtén los valores del formulario
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    const consulta = document.getElementById('consulta').value;
+  
+    // Asegúrate de que los campos no estén vacíos
+    if (!nombre || !email || !telefono || !consulta) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+  
+    // Prepara los datos para enviarlos
+    const datos = {
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      consulta: consulta
+    };
+  
+    // Realiza la solicitud fetch a la web app
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxflPBdTJWQU_0k-2x42nLFI89JM_qpGRHmGvez8CMMVgqqiIvy395NWGe1xOXyVzMd/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+      });
+  
+      const result = await response.json();
+  
+      // Verifica si la respuesta fue exitosa
+      if (result.success) {
+        alert('Formulario enviado correctamente.');
+        // Aquí puedes limpiar los campos si lo deseas
+        document.getElementById('nombre').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('telefono').value = '';
+        document.getElementById('consulta').value = '';
+      } else {
+        alert('Error al enviar el formulario. Inténtalo nuevamente.');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('Error al enviar el formulario. Inténtalo nuevamente.');
+    }
+  });
+  
