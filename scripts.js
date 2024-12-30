@@ -7,6 +7,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('myModal');  // Corregido el selector del modal
     const btn = document.getElementById('llamar-btn');
